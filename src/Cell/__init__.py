@@ -39,12 +39,13 @@ class Cell:
         self,
         number : int
     ):
-        if [self.x,self.y] == [2,3]:
-            b=1
+        # if [self.x,self.y] == [2,3]:
+        #     b=1
         if self.is_solved():
             return False
         if number in self.options:
             del self.options[number]
+            return ""
         if len(self.options) == 1:
             self.value = list(self.options.keys())[0]
             return self.value
@@ -71,3 +72,12 @@ class Cell:
                 if (xc != self.x) & (yc != self.y):
                     cell_3x3_coords.append((xc,yc))
         return cell_3x3_coords
+
+    def get_row_column_3x3(
+        self
+    ):
+        return [
+            f"r{self.y}",
+            f"c{self.x}",
+            f"{ceil(self.y/3)}.{ceil(self.x/3)}"
+        ]

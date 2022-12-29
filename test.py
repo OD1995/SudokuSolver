@@ -7,3 +7,4 @@ sr = Sudoku(
 )
 # sr.print_sudoku(1)
 sr.solve()
+sr.to_excel()
